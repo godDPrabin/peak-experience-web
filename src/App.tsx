@@ -50,11 +50,12 @@ import g19 from '@/assets/gallery/pic19.jpeg';
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const galleryImages = [
     g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11, g12, g13, g14, g15, g16, g17, g18, g19,
   ];
+  const lightboxImages = galleryImages.map((src, i) => ({ src, alt: `Gallery image ${i + 1}` }));
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">
