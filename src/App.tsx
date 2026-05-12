@@ -179,7 +179,7 @@ const App = () => {
             {galleryImages.map((img, idx) => (
               <button
                 key={idx}
-                onClick={() => setSelectedImage(img)}
+                onClick={() => setSelectedIndex(idx)}
                 className="relative overflow-hidden rounded-lg h-64 hover:opacity-80 transition"
               >
                 <img src={img} alt={`Gallery ${idx}`} className="w-full h-full object-cover" />
@@ -236,8 +236,13 @@ const App = () => {
       </footer>
 
       {/* Modals */}
-      <JotformModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
-      <Lightbox imageUrl={selectedImage} onClose={() => setSelectedImage(null)} />
+      <JotformModal open={isFormOpen} onClose={() => setIsFormOpen(false)} />
+      <Lightbox
+        images={lightboxImages}
+        index={selectedIndex}
+        onClose={() => setSelectedIndex(null)}
+        onIndex={setSelectedIndex}
+      />
     </div>
   );
 };
