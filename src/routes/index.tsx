@@ -20,7 +20,7 @@ import {
 import { JotformModal } from "@/components/JotformModal";
 import { Lightbox } from "@/components/Lightbox";
 
-import header from "@/assets/sparsa/header.jpg";
+import header from "@/assets/sparsa/hero.jpg";
 import img1 from "@/assets/sparsa/img1.jpg";
 import img2 from "@/assets/sparsa/img2.jpg";
 import img3 from "@/assets/sparsa/img3.jpg";
@@ -280,7 +280,7 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative min-h-[100svh] flex items-end overflow-hidden">
+      <section id="home" className="relative min-h-[100svh] flex items-center overflow-hidden">
         <img
           src={header}
           alt="Snowy mountain peaks at Perisher Valley, Australia"
