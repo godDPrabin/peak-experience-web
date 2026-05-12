@@ -4,6 +4,7 @@ export default defineConfig({
   tanstackStart: {
     base: '/peak-experience-web/',
     prerender: {
+      crawlLinks: true,
       routes: ['/'],
     },
   },
