@@ -22,8 +22,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
       - name: Build
-        env:
-          VITE_BASE: /${{ github.event.repository.name }}/
         run: bun run build
       - name: SPA fallback (404.html)
         run: cp dist/index.html dist/404.html

@@ -3,10 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-// Set base to your GitHub repo name for GitHub Pages, or "/" for custom domain / root.
-const base = process.env.VITE_BASE ?? "/peak-experience-web/";
-
+// Use relative base so the build works on GitHub Pages (subpath),
+// custom domains, and the Lovable preview (served at root).
 export default defineConfig({
-  base,
+  base: "./",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
 });
