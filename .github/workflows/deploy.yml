@@ -24,24 +24,22 @@ jobs:
         with:
           bun-version: latest
 
-      - run: bun install --frozen-lockfile || bun install
+      - run: bun install
 
       - name: Build static site
         env:
-          # GitHub Pages project sites are served from /<repo>/ — set base path accordingly.
           BASE_PATH: /${{ github.event.repository.name }}/
-        run: bunx vite build --config vite.static.config.ts
+        run: bunx vite build
 
-      - name: Add SPA 404 fallback + .nojekyll
+      - name: SPA fallback + .nojekyll
         run: |
-          cp dist-static/index.html dist-static/404.html
-          touch dist-static/.nojekyll
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
 
       - uses: actions/configure-pages@v5
-
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist-static
+          path: dist
 
   deploy:
     needs: build
