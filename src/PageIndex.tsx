@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import {
   Mountain,
@@ -49,65 +48,8 @@ import g18 from "@/assets/gallery/pic18.jpeg";
 import g19 from "@/assets/gallery/pic19.jpeg";
 
 const PHONE = "0452549408";
-// Australia mobile in international format for WhatsApp (drop leading 0, add 61)
 const WHATSAPP = "61452549408";
 const ADDRESS = "555 Princess Highway, Rockdale, NSW, Australia";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sparsa Travels — Snowy Mountain Escapes in Perisher Valley, Australia" },
-      {
-        name: "description",
-        content:
-          "Sparsa Travels & Services curates unforgettable snowy mountain escapes to Perisher Valley, Australia — guided ski trips, cozy stays, scenic short trips and bespoke itineraries.",
-      },
-      { name: "keywords", content: "Sparsa Travels, Perisher Valley, snow trip Australia, ski tours, Rockdale travel agency, snowy mountain holiday, short trips Sydney" },
-      { name: "theme-color", content: "#0c1733" },
-      { property: "og:title", content: "Sparsa Travels — Snowy Mountain Escapes" },
-      { property: "og:description", content: "Guided snowy mountain escapes to Perisher Valley. Book your alpine adventure with Sparsa Travels & Services." },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: header },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Sparsa Travels — Snowy Mountain Escapes" },
-      { name: "twitter:description", content: "Guided snowy mountain escapes to Perisher Valley, Australia." },
-      { name: "twitter:image", content: header },
-    ],
-    links: [
-      { rel: "canonical", href: "https://sparsatravels.com/" },
-      { rel: "preload", as: "image", href: header, fetchpriority: "high" } as any,
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" } as any,
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap",
-      },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "TravelAgency",
-          name: "Sparsa Travels & Services",
-          image: header,
-          telephone: "+61452549408",
-          email: "info@sparsatravels.com",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "555 Princess Highway",
-            addressLocality: "Rockdale",
-            addressRegion: "NSW",
-            addressCountry: "AU",
-          },
-          areaServed: "Perisher Valley, Australia",
-          priceRange: "$$",
-        }),
-      },
-    ],
-  }),
-  component: Index,
-});
 
 const NAV = [
   { id: "home", label: "Home" },
@@ -117,7 +59,7 @@ const NAV = [
   { id: "contact", label: "Contact" },
 ];
 
-function Index() {
+export default function PageIndex() {
   const [bookOpen, setBookOpen] = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -131,7 +73,6 @@ function Index() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Active section observer
   useEffect(() => {
     const sections = NAV.map((n) => document.getElementById(n.id)).filter(Boolean) as HTMLElement[];
     const obs = new IntersectionObserver(
@@ -144,7 +85,6 @@ function Index() {
     return () => obs.disconnect();
   }, []);
 
-  // Reveal on scroll
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
     const obs = new IntersectionObserver(
@@ -174,7 +114,6 @@ function Index() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip">
-      {/* Snowfall ambience */}
       <div className="snow" aria-hidden>
         {Array.from({ length: 36 }).map((_, i) => {
           const left = (i * 53) % 100;
@@ -196,12 +135,9 @@ function Index() {
         })}
       </div>
 
-      {/* NAV */}
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "py-2 glass-dark text-white shadow-soft"
-            : "py-4 bg-transparent text-white"
+          scrolled ? "py-2 glass-dark text-white shadow-soft" : "py-4 bg-transparent text-white"
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
@@ -251,7 +187,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Mobile drawer */}
         {mobileNav && (
           <div className="md:hidden mx-5 mt-3 rounded-2xl glass-dark p-3 animate-fade-up" style={{ animationDuration: "250ms" }}>
             <div className="flex flex-col">
@@ -279,7 +214,6 @@ function Index() {
         )}
       </header>
 
-      {/* HERO */}
       <section id="home" className="relative min-h-[100svh] flex items-center overflow-hidden">
         <img
           src={header}
@@ -319,7 +253,6 @@ function Index() {
             </div>
           </div>
 
-          {/* hero meta strip */}
           <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 max-w-3xl text-white/85 animate-fade-up" style={{ animationDelay: "500ms" }}>
             {[
               ["7+", "Years guiding"],
@@ -336,7 +269,6 @@ function Index() {
         </div>
       </section>
 
-      {/* STORY */}
       <section id="story" className="relative py-24 sm:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="reveal">
@@ -385,7 +317,6 @@ function Index() {
         </div>
       </section>
 
-      {/* EXPERIENCES */}
       <section id="experiences" className="relative py-24 sm:py-32 bg-secondary/40">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 reveal">
@@ -436,7 +367,6 @@ function Index() {
         </div>
       </section>
 
-      {/* GALLERY */}
       <section id="gallery" className="relative py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 reveal">
@@ -455,7 +385,6 @@ function Index() {
 
           <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[180px] sm:auto-rows-[220px] gap-3 sm:gap-4">
             {gallery.map((g, i) => {
-              // Vary tile sizes for a magazine-style mosaic
               const big = [0, 5, 8, 13].includes(i);
               return (
                 <button
@@ -486,7 +415,6 @@ function Index() {
         </div>
       </section>
 
-      {/* CTA banner */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div className="absolute inset-0 gradient-sky" />
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: `url(${header})`, backgroundSize: "cover", backgroundPosition: "center", mixBlendMode: "overlay" }} />
@@ -506,7 +434,6 @@ function Index() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section id="contact" className="relative py-24 sm:py-32 bg-background">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-20">
           <div className="reveal">
@@ -528,7 +455,6 @@ function Index() {
                 className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 hover:shadow-frost hover:-translate-y-0.5 transition"
               >
                 <div className="size-12 rounded-xl bg-[oklch(0.72_0.16_150)] grid place-items-center text-white shrink-0">
-                  {/* WhatsApp glyph */}
                   <svg viewBox="0 0 32 32" className="size-6" fill="currentColor" aria-hidden>
                     <path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.18-1.34-.81-.72-1.35-1.6-1.51-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.73 4.18.66.29 1.18.46 1.58.59.66.21 1.27.18 1.75.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32zM16.02 5.33c-5.89 0-10.67 4.78-10.67 10.67 0 1.88.49 3.71 1.43 5.32L5 27.33l6.16-1.61a10.62 10.62 0 0 0 4.86 1.18h.01c5.88 0 10.67-4.78 10.67-10.67 0-2.85-1.11-5.53-3.12-7.55a10.61 10.61 0 0 0-7.56-3.13z"/>
                   </svg>
@@ -595,7 +521,6 @@ function Index() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="relative bg-primary text-primary-foreground pt-16 pb-8 mt-8">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
@@ -644,7 +569,6 @@ function Index() {
         </div>
       </footer>
 
-      {/* Floating phone → WhatsApp */}
       <a
         href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi Sparsa! I'd love to plan a snowy mountain trip.")}`}
         target="_blank"
@@ -657,7 +581,6 @@ function Index() {
         </svg>
       </a>
 
-      {/* Modals */}
       <JotformModal open={bookOpen} onClose={() => setBookOpen(false)} />
       <Lightbox images={gallery} index={lightboxIdx} onClose={() => setLightboxIdx(null)} onIndex={setLightboxIdx} />
     </div>
