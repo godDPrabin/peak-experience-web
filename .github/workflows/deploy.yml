@@ -27,8 +27,6 @@ jobs:
       - run: bun install
 
       - name: Build static site
-        env:
-          BASE_PATH: /${{ github.event.repository.name }}/
         run: bunx vite build
 
       - name: SPA fallback + .nojekyll
