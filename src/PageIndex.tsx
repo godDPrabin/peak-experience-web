@@ -55,6 +55,7 @@ const NAV = [
   { id: "home", label: "Home" },
   { id: "story", label: "Our Story" },
   { id: "experiences", label: "Experiences" },
+  { id: "snow-tours", label: "Snow Tours" },
   { id: "gallery", label: "Gallery" },
   { id: "contact", label: "Contact" },
 ];
@@ -363,6 +364,57 @@ export default function PageIndex() {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="snow-tours" className="relative py-24 sm:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 reveal">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-muted-foreground">
+                <Snowflake className="size-3.5" /> Expert Snow Tours
+              </div>
+              <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-2xl">
+                Adventure on <span className="italic">pristine snow</span>.
+              </h2>
+            </div>
+            <p className="text-muted-foreground max-w-sm">
+              Our curated snow tours combine expert local guides with unforgettable alpine experiences in Perisher Valley.
+            </p>
+          </div>
+
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: Mountain, title: "Guided Alpine Tours", text: "Expert-led mountain expeditions with breathtaking views of Perisher Valley's snow-covered peaks and scenic routes." },
+              { icon: Snowflake, title: "Ski Adventures", text: "Professional ski instruction and guided ski tours suited for all skill levels on pristine mountain slopes." },
+              { icon: Compass, title: "Snow Exploration", text: "Discover hidden trails and snow-dusted vistas with local guides who know every corner of the mountains." },
+              { icon: Hotel, title: "Winter Getaways", text: "Complete snow tour packages including cozy mountain lodges, hearty meals and unforgettable alpine experiences." },
+              { icon: Camera, title: "Photography Tours", text: "Capture stunning snow landscapes with guidance from experienced photographers familiar with the best viewpoints." },
+              { icon: Sparkles, title: "Bespoke Experiences", text: "Customized snow tours tailored to your preferences, fitness level and specific alpine adventure desires." },
+            ].map(({ icon: Icon, title, text }, i) => (
+              <div
+                key={title}
+                className="reveal group p-6 rounded-2xl border border-border bg-card/50 hover:bg-card transition-all duration-500 hover:border-primary/50"
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition">
+                  <Icon className="size-6" />
+                </div>
+                <h3 className="font-display text-xl mt-4">{title}</h3>
+                <p className="text-sm text-muted-foreground mt-2">{text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 reveal">
+            <button
+              onClick={() => setBookOpen(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition font-medium"
+            >
+              Book Your Snow Tour Today
+              <ArrowRight className="size-4" />
+            </button>
           </div>
         </div>
       </section>
