@@ -40,34 +40,34 @@
 :root {
   --radius: 0.75rem;
 
-  /* Alpine luxury — deep midnight forest + warm gold */
-  --background: #f7f3ec;          /* warm cream paper */
-  --foreground: #0d1410;          /* deep forest */
-  --card: #fbf8f2;
-  --card-foreground: #0d1410;
-  --popover: #fbf8f2;
-  --popover-foreground: #0d1410;
-  --primary: #0d1410;             /* near-black forest */
-  --primary-foreground: #f7f3ec;
-  --secondary: #ebe4d6;           /* sand */
-  --secondary-foreground: #0d1410;
-  --muted: #ede7da;
-  --muted-foreground: #5c5a52;
-  --accent: #caa46a;              /* warm gold */
-  --accent-foreground: #0d1410;
+  /* Arctic snow — icy whites, glacial blues, deep midnight slate */
+  --background: #f2f7fc;          /* fresh snow */
+  --foreground: #0a1626;          /* midnight slate */
+  --card: #ffffff;
+  --card-foreground: #0a1626;
+  --popover: #ffffff;
+  --popover-foreground: #0a1626;
+  --primary: #0a1626;             /* deep glacial night */
+  --primary-foreground: #f2f7fc;
+  --secondary: #e2ecf5;           /* pale ice */
+  --secondary-foreground: #0a1626;
+  --muted: #e6eef6;
+  --muted-foreground: #51647a;
+  --accent: #4ea8de;              /* glacial blue */
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: #fff;
-  --border: #d9d2c2;
-  --input: #e3dcca;
-  --ring: #caa46a;
+  --border: #cfdbe6;
+  --input: #dde6ef;
+  --ring: #4ea8de;
 
-  --gold: #caa46a;
-  --gold-soft: #f0d9a8;
-  --cream: #f7f3ec;
-  --forest: #0d1410;
+  --gold: #7cc4ec;                /* legacy token kept — now icy blue */
+  --gold-soft: #c8e4f5;
+  --cream: #f2f7fc;
+  --forest: #0a1626;
 
-  --shadow-warm: 0 30px 80px -30px rgba(13, 20, 16, 0.35);
-  --shadow-soft: 0 10px 40px -20px rgba(13, 20, 16, 0.20);
+  --shadow-warm: 0 30px 80px -30px rgba(10, 22, 38, 0.35);
+  --shadow-soft: 0 10px 40px -20px rgba(10, 22, 38, 0.18);
 }
 
 @layer base {
