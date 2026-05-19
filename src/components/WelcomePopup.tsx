@@ -35,9 +35,9 @@ export function WelcomePopup({ onBook }: Props) {
         onClick={() => setOpen(false)}
         className="absolute inset-0 bg-black/70 backdrop-blur-md"
       />
-      <div className="relative w-full max-w-lg rounded-3xl overflow-hidden bg-[#0d1410] border border-[#caa46a]/40 shadow-2xl">
+      <div className="relative w-full max-w-lg rounded-3xl overflow-hidden bg-[#0a1626] border border-[#7cc4ec]/40 shadow-2xl">
         {/* Decorative top border */}
-        <div className="h-1 bg-gradient-to-r from-[#caa46a] via-[#f0d9a8] to-[#caa46a]" />
+        <div className="h-1 bg-gradient-to-r from-[#7cc4ec] via-[#d6ecff] to-[#7cc4ec]" />
 
         <button
           onClick={() => setOpen(false)}
@@ -48,12 +48,12 @@ export function WelcomePopup({ onBook }: Props) {
         </button>
 
         <div className="px-6 sm:px-9 pt-9 pb-7 text-center text-white">
-          <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.35em] uppercase text-[#caa46a] mb-3">
+          <div className="inline-flex items-center gap-2 text-[10px] tracking-[0.35em] uppercase text-[#7cc4ec] mb-3">
             <Snowflake className="size-3" /> Sparsa Travels Presents
           </div>
           <h2 id="welcome-title" className="font-display text-3xl sm:text-4xl leading-tight">
             Perisher Snow Tours
-            <span className="block text-[#caa46a]">2026</span>
+            <span className="block text-[#7cc4ec]">2026</span>
           </h2>
           <p className="mt-3 text-white/70 italic text-sm">Experience the snow like never before</p>
 
@@ -67,7 +67,7 @@ export function WelcomePopup({ onBook }: Props) {
             ].map(([k, v]) => (
               <li key={k} className="flex items-baseline justify-between gap-3 border-b border-white/10 pb-2">
                 <span className="text-white/85">{k}</span>
-                <span className="font-display text-[#caa46a]">{v}</span>
+                <span className="font-display text-[#7cc4ec]">{v}</span>
               </li>
             ))}
           </ul>
@@ -75,12 +75,12 @@ export function WelcomePopup({ onBook }: Props) {
           <ul className="mt-5 grid grid-cols-2 gap-x-3 gap-y-1.5 text-[12px] text-white/75 text-left max-w-xs mx-auto">
             {["Transport included", "Friendly guide", "Perisher entry", "Group & shared"].map((p) => (
               <li key={p} className="flex items-center gap-1.5">
-                <Snowflake className="size-3 text-[#caa46a]" /> {p}
+                <Snowflake className="size-3 text-[#7cc4ec]" /> {p}
               </li>
             ))}
           </ul>
 
-          <div className="mt-5 inline-block rounded-full bg-[#caa46a]/15 border border-[#caa46a]/40 px-4 py-1.5 text-[11px] tracking-widest uppercase text-[#f0d9a8]">
+          <div className="mt-5 inline-block rounded-full bg-[#7cc4ec]/15 border border-[#7cc4ec]/40 px-4 py-1.5 text-[11px] tracking-widest uppercase text-[#d6ecff]">
             Bonus · Free snow gloves
           </div>
 
@@ -90,7 +90,7 @@ export function WelcomePopup({ onBook }: Props) {
                 setOpen(false);
                 onBook();
               }}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#caa46a] text-[#0d1410] px-6 py-3.5 text-sm font-medium hover:bg-[#f0d9a8] transition"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#7cc4ec] text-[#0a1626] px-6 py-3.5 text-sm font-medium hover:bg-[#d6ecff] transition"
             >
               Book now <ArrowRight className="size-4" />
             </button>
