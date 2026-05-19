@@ -240,7 +240,7 @@ export default function PageIndex() {
     <div className="relative min-h-screen overflow-x-clip bg-background">
       {/* Top marquee */}
       <div className="relative z-[60] bg-[var(--forest)] text-[var(--cream)] text-[11px] tracking-[0.25em] uppercase overflow-hidden border-b border-[var(--gold)]/20">
-        <div className="flex whitespace-nowrap animate-marquee py-2.5">
+        <div className="flex whitespace-nowrap animate-marquee py-2.5 will-change-transform">
           {Array.from({ length: 2 }).map((_, j) => (
             <div key={j} className="flex shrink-0 items-center gap-10 px-5">
               {[
@@ -283,8 +283,8 @@ export default function PageIndex() {
 
       {/* Header */}
       <header
-        className={`fixed top-[36px] inset-x-0 z-50 transition-all duration-500 ${
-          scrolled ? "glass-dark text-white py-2.5" : "py-4 text-white"
+        className={`fixed inset-x-0 z-50 transition-all duration-500 ${
+          scrolled ? "top-0 glass-dark text-white py-2.5" : "top-[36px] py-4 text-white"
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between gap-6">
