@@ -240,7 +240,7 @@ export default function PageIndex() {
     <div className="relative min-h-screen overflow-x-clip bg-background">
       {/* Top marquee */}
       <div className="relative z-[60] bg-[var(--forest)] text-[var(--cream)] text-[11px] tracking-[0.25em] uppercase overflow-hidden border-b border-[var(--gold)]/20">
-        <div className="flex whitespace-nowrap animate-marquee py-2.5">
+        <div className="flex whitespace-nowrap animate-marquee py-2.5 will-change-transform">
           {Array.from({ length: 2 }).map((_, j) => (
             <div key={j} className="flex shrink-0 items-center gap-10 px-5">
               {[
